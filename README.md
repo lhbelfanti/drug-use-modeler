@@ -9,13 +9,30 @@
 </p>
 
 ---
-
-
 # Drugs Usage Models Creator
 
-## Application
+## Project Purpose
+This project aims to create models for the detection of "Adverse Human Behaviors" (specifically illicit drug consumption) from a Spanish Twitter corpus using various Machine Learning and Deep Learning techniques.
 
-Core engine for training, evaluating, and exporting specialized drug-consumption detection models
+## Repository Structure
 
+The project follows a structured architecture for reproducibility and maintainability:
 
+- **/data**: Contains datasets.
+  - `raw/`: Original, immutable CSV files.
+  - `processed/`: Cleaned and transformed datasets ready for modeling.
+- **/src**: Source code for the project.
+  - `preprocessing/`: Scripts for data cleaning and preparation.
+  - `features/`: Feature engineering logic.
+  - `training/`: Scripts to train models.
+  - `models/`: Model architecture definitions.
+- **/models**: Stores trained model binaries and checkpoints.
+- **/notebooks**: Jupyter notebooks for Exploratory Data Analysis (EDA) and initial experiments.
+- **/evaluation**: Contains evaluation metrics, confusion matrices, and plots.
 
+## Setup Instructions
+
+1. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```

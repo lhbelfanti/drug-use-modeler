@@ -57,7 +57,16 @@ pip install -r requirements.txt
 source .venv/bin/activate
 jupyter lab
 ```
+---
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+### Logo License
+
+Generated with AI
 
 ### Matplotlib style
-The [style.mplstyle](style.mplstyle) file was obtained from the following
-[repository](https://github.com/DataForScience/Networks/blob/master/d4sci.mplstyle).
+
+The [style.mplstyle](./style.mplstyle) file was obtained from the following [repository](https://github.com/DataForScience/Networks/blob/master/d4sci.mplstyle) 

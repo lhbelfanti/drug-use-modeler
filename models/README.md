@@ -21,7 +21,8 @@ Each model is trained on **two** data pipelines:
 
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Delta (Δ) |
 | :--- | :--- | :--- | :---: | :---: | :---: |
-| **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN (PyTorch) | 76.00% | 77.78% | +1.78% |
+| **TextCNN** | [09_cnn.ipynb](../notebooks/09_cnn.ipynb) | Word2Vec + Conv1D(3,4,5) | **81.33%** | 81.11% | -0.22% |
+| **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN | 76.00% | 77.78% | +1.78% |
 
 ### Embeddings
 
@@ -37,5 +38,6 @@ models/
 ├── naive_bayes/{standard,irony}/
 ├── random_forest/{standard,irony}/
 ├── word2vec/{standard,irony}/
-└── ffn/{standard,irony}/
+├── ffn/{standard,irony}/
+└── cnn/{standard,irony}/
 ```

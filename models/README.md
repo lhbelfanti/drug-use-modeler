@@ -22,6 +22,7 @@ Each model is trained on **two** data pipelines:
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Delta (Δ) |
 | :--- | :--- | :--- | :---: | :---: | :---: |
 | **TextCNN** | [09_cnn.ipynb](../notebooks/09_cnn.ipynb) | Word2Vec + Conv1D(3,4,5) | **81.33%** | 81.11% | -0.22% |
+| **BiLSTM** | [10_rnn.ipynb](../notebooks/10_rnn.ipynb) | Word2Vec + BiLSTM(64) | 78.22% | 78.00% | -0.22% |
 | **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN | 76.00% | 77.78% | +1.78% |
 
 ### Embeddings
@@ -39,5 +40,6 @@ models/
 ├── random_forest/{standard,irony}/
 ├── word2vec/{standard,irony}/
 ├── ffn/{standard,irony}/
-└── cnn/{standard,irony}/
+├── cnn/{standard,irony}/
+└── rnn/{standard,irony}/
 ```

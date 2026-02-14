@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="media/drugs-usage-models-creator-logo.png" width="300" alt="Repository logo" />
+  <img src="media/drugs-usage-models-creator-logo.png" width="700" alt="Repository logo" />
 </p>
 <h3 align="center">Drugs Usage Models Creator</h3>
 <p align="center">Core engine for training, evaluating, and exporting specialized drug-consumption detection models<p>

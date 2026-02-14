@@ -8,6 +8,8 @@ Each model is trained on **two** data pipelines:
 - **Standard**: Basic cleaning (lowercase, URL/emoji removal, tag preservation).
 - **Irony**: Standard + irony markers (e.g. `ahrre`, `(?`, `xD`) tagged as `[IRONIA]`.
 
+### Traditional ML Models
+
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Delta (Δ) |
 | :--- | :--- | :--- | :---: | :---: | :---: |
 | **Naive Bayes** | [05_naive_bayes.ipynb](../notebooks/05_naive_bayes.ipynb) | TF-IDF + MultinomialNB | **83.78%** | 83.33% | -0.45% |
@@ -15,23 +17,25 @@ Each model is trained on **two** data pipelines:
 | **SVM** | [04_svm.ipynb](../notebooks/04_svm.ipynb) | TF-IDF + LinearSVC | 81.56% | 81.78% | +0.22% |
 | **Random Forest** | [06_random_forest.ipynb](../notebooks/06_random_forest.ipynb) | TF-IDF + RandomForest | 78.44% | 79.78% | +1.34% |
 
+### Deep Learning Models
+
+| Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Delta (Δ) |
+| :--- | :--- | :--- | :---: | :---: | :---: |
+| **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN (PyTorch) | 76.00% | 77.78% | +1.78% |
+
+### Embeddings
+
+| Source Notebook | Technique | Details |
+| :--- | :--- | :--- |
+| [07_word2vec_embeddings.ipynb](../notebooks/07_word2vec_embeddings.ipynb) | Word2Vec (Skip-gram) | 100-dim, window=5, vocab ~2240 |
+
 ## Directory Structure
 ```
 models/
-├── logistic_regression/
-│   ├── standard/
-│   │   ├── model.joblib
-│   │   └── vectorizer.joblib
-│   └── irony/
-│       ├── model.joblib
-│       └── vectorizer.joblib
-├── svm/
-│   ├── standard/ ...
-│   └── irony/ ...
-├── naive_bayes/
-│   ├── standard/ ...
-│   └── irony/ ...
-└── random_forest/
-    ├── standard/ ...
-    └── irony/ ...
+├── logistic_regression/{standard,irony}/
+├── svm/{standard,irony}/
+├── naive_bayes/{standard,irony}/
+├── random_forest/{standard,irony}/
+├── word2vec/{standard,irony}/
+└── ffn/{standard,irony}/
 ```

@@ -32,7 +32,32 @@ The project follows a structured architecture for reproducibility and maintainab
 
 ## Setup Instructions
 
-1. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Prerequisites
+- [pyenv](https://github.com/pyenv/pyenv) with **Python 3.12.12** installed (`pyenv install 3.12.12`)
+
+### 1. Create the virtual environment
+```bash
+# Use pyenv's Python 3.12.12 to create the venv
+~/.pyenv/versions/3.12.12/bin/python -m venv .venv
+
+# Activate the venv
+source .venv/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
+```
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Launch JupyterLab
+```bash
+source .venv/bin/activate
+jupyter lab
+```
+
+### Matplotlib style
+The [style.mplstyle](style.mplstyle) file was obtained from the following
+[repository](https://github.com/DataForScience/Networks/blob/master/d4sci.mplstyle).

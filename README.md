@@ -2,7 +2,7 @@
   <img src="media/drug-use-modeler-logo.png" width="700" alt="Repository logo" />
 </p>
 <h3 align="center">Drug Use Modeler</h3>
-<p align="center">Core engine for training, evaluating, and exporting specialized drug-consumption detection models<p>
+<p align="center">Core engine for training, evaluating, and exporting specialized drug-use detection models<p>
 <p align="center">
     <img src="https://img.shields.io/github/repo-size/lhbelfanti/drug-use-modeler?label=Repo%20size" alt="Repo size" />
     <img src="https://img.shields.io/github/license/lhbelfanti/drug-use-modeler?label=License" alt="License" />

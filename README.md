@@ -30,6 +30,35 @@ The project follows a structured architecture for reproducibility and maintainab
 - **/notebooks**: Jupyter notebooks for Exploratory Data Analysis (EDA) and initial experiments.
 - **/evaluation**: Contains evaluation metrics, confusion matrices, and plots.
 
+## Download this Repo
+
+To get the code and the large model files properly:
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/lhbelfanti/drugs-usage-models-creator.git
+    cd drugs-usage-models-creator
+    ```
+
+2.  **Download Model Weights (Git LFS)**:
+    This repository uses **Git LFS** to store large model files.
+    
+    *Install Git LFS if needed:*
+    ```bash
+    # macOS
+    brew install git-lfs
+    # Ubuntu
+    sudo apt-get install git-lfs
+    # Windows
+    git lfs install
+    ```
+
+    *Pull weights:*
+    ```bash
+    git lfs install
+    git lfs pull
+    ```
+
 ## Setup Instructions
 
 ### Prerequisites

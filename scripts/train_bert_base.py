@@ -103,8 +103,8 @@ if __name__ == '__main__':
     torch.manual_seed(42)
     np.random.seed(42)
     
-    acc_std = train_bert("Standard", "data/processed/standard", "models/bert/standard")
-    acc_iro = train_bert("Irony", "data/processed/irony", "models/bert/irony")
+    acc_std = train_bert("Standard", "data/processed/standard", "models/bert_base/standard")
+    acc_iro = train_bert("Irony", "data/processed/irony", "models/bert_base/irony")
     
     print(f"\n=== Final Comparison ===")
     print(f"Standard: {acc_std:.4f}")

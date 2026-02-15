@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="media/drugs-usage-models-creator-logo.png" width="700" alt="Repository logo" />
+  <img src="media/drug-use-modeler-logo.png" width="700" alt="Repository logo" />
 </p>
-<h3 align="center">Drugs Usage Models Creator</h3>
+<h3 align="center">Drug Use Modeler</h3>
 <p align="center">Core engine for training, evaluating, and exporting specialized drug-consumption detection models<p>
 <p align="center">
-    <img src="https://img.shields.io/github/repo-size/lhbelfanti/drugs-usage-models-creator?label=Repo%20size" alt="Repo size" />
-    <img src="https://img.shields.io/github/license/lhbelfanti/drugs-usage-models-creator?label=License" alt="License" />
+    <img src="https://img.shields.io/github/repo-size/lhbelfanti/drug-use-modeler?label=Repo%20size" alt="Repo size" />
+    <img src="https://img.shields.io/github/license/lhbelfanti/drug-use-modeler?label=License" alt="License" />
 </p>
 
 ---
-# Drugs Usage Models Creator
+# Drug Use Modeler
 
 ## Project Purpose
 This project aims to create models for the detection of "Adverse Human Behaviors" (specifically illicit drug consumption) from a Spanish Twitter corpus using various Machine Learning and Deep Learning techniques.
@@ -36,8 +36,8 @@ To get the code and the large model files properly:
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/lhbelfanti/drugs-usage-models-creator.git
-    cd drugs-usage-models-creator
+    git clone https://github.com/lhbelfanti/drug-use-modeler.git
+    cd drug-use-modeler
     ```
 
 2.  **Download Model Weights (Git LFS)**:

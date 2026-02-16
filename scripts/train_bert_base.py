@@ -103,11 +103,15 @@ if __name__ == '__main__':
     torch.manual_seed(42)
     np.random.seed(42)
     
-    # acc_std = train_bert("Standard", "data/processed/standard", "models/bert_base/standard")
-    # acc_iro = train_bert("Irony", "data/processed/irony", "models/bert_base/irony")
+    CORPUS_NAME = 'pre-filtered-corpus'
+    PROCESSED_DIR = f'data/processed/{CORPUS_NAME}'
+    MODELS_DIR = f'models/{CORPUS_NAME}/bert_base'
+
+    # acc_std = train_bert("Standard", f"{PROCESSED_DIR}/standard", f"{MODELS_DIR}/standard")
+    # acc_iro = train_bert("Irony", f"{PROCESSED_DIR}/irony", f"{MODELS_DIR}/irony")
     acc_std = 0.8622
     acc_iro = 0.8533
-    acc_obf = train_bert("Obfuscated", "data/processed/obfuscated", "models/bert_base/obfuscated")
+    acc_obf = train_bert("Obfuscated", f"{PROCESSED_DIR}/obfuscated", f"{MODELS_DIR}/obfuscated")
     
     print(f"\n=== Final Comparison ===")
     print(f"Standard:   {acc_std:.4f}")

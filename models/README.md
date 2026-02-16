@@ -35,7 +35,7 @@ Each model is trained on **three** data pipelines:
 
 ---
 
-## Results: `raw_corpus`
+## Results: `raw-corpus`
 
 > Full unfiltered dataset (2,633 samples).
 
@@ -44,7 +44,7 @@ Each model is trained on **three** data pipelines:
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Obfuscated Acc. |
 | :--- | :--- | :--- | :---: | :---: | :---: |
 | **Naive Bayes** | [05_naive_bayes.ipynb](../notebooks/05_naive_bayes.ipynb) | TF-IDF + MultinomialNB | 83.78% | 83.33% | 83.11% |
-| **Logistic Regression** | [03_logistic_regression.ipynb](../notebooks/03_logistic_regression.ipynb) | TF-IDF + LogisticRegression | 81.72% | 81.94% | 81.72% |
+| **Logistic Regression** | [03_logistic_regression.ipynb](../notebooks/03_logistic_regression.ipynb) | TF-IDF + LogisticRegression | 80.00% | 80.22% | 80.67% |
 | **SVM** | [04_svm.ipynb](../notebooks/04_svm.ipynb) | TF-IDF + LinearSVC | 81.56% | 81.78% | 81.56% |
 | **Random Forest** | [06_random_forest.ipynb](../notebooks/06_random_forest.ipynb) | TF-IDF + RandomForest | 78.44% | 79.78% | 79.56% |
 
@@ -78,7 +78,7 @@ models/
 │   ├── cnn/{standard,irony,obfuscated}/
 │   ├── rnn/{standard,irony,obfuscated}/
 │   └── bert_base/{standard,irony,obfuscated}/
-└── raw_corpus/
+└── raw-corpus/
     ├── logistic_regression/{standard,irony,obfuscated}/
     ├── svm/{standard,irony,obfuscated}/
     ├── naive_bayes/{standard,irony,obfuscated}/

@@ -103,7 +103,7 @@ if __name__ == '__main__':
     torch.manual_seed(42)
     np.random.seed(42)
     
-    CORPUS_NAME = 'raw_corpus'
+    CORPUS_NAME = 'raw-corpus'
     PROCESSED_DIR = f'data/processed/{CORPUS_NAME}'
     MODELS_DIR = f'models/{CORPUS_NAME}/bert_base'
 

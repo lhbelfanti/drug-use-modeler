@@ -17,13 +17,13 @@ gensim==4.4.0
 spacy>=3.7.0
 
 # --- Deep Learning ---
-# torch>=2.2.2
-# torchview==0.2.6
+torch>=2.2.2
+torchview==0.2.6
 
 # --- Transformers (Hugging Face) ---
-# transformers==4.40.2
-# datasets>=2.19.0
-# accelerate>=0.21.0
+transformers==4.40.2
+datasets>=2.19.0
+accelerate>=0.21.0
 
 # --- Jupyter Ecosystem ---
 notebook==7.5.3

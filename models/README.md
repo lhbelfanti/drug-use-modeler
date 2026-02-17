@@ -52,7 +52,7 @@ Each model is trained on **three** data pipelines:
 
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Obfuscated Acc. |
 | :--- | :--- | :--- | :---: | :---: | :---: |
-| **BERT (Base)** | [11_bert_base.ipynb](../notebooks/11_bert_base.ipynb) | Fine-tuned BETO (Spanish BERT) | *pending* | *pending* | *pending* |
+| **BERT (Base)** | [11_bert_base.ipynb](../notebooks/11_bert_base.ipynb) | Fine-tuned BETO (Spanish BERT) | 81.78% | 82.44% | 82.00% |
 | **BiLSTM** | [10_rnn.ipynb](../notebooks/10_rnn.ipynb) | Word2Vec + BiLSTM(64) | 76.44% | 78.22% | 75.56% |
 | **TextCNN** | [09_cnn.ipynb](../notebooks/09_cnn.ipynb) | Word2Vec + Conv1D(3,4,5) | 76.22% | 77.56% | 76.44% |
 | **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN | 76.00% | 76.89% | 73.33% |

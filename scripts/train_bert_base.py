@@ -107,21 +107,9 @@ if __name__ == '__main__':
     PROCESSED_DIR = f'data/processed/{CORPUS_NAME}'
     MODELS_DIR = f'models/{CORPUS_NAME}/bert_base'
 
-    acc_std = train_bert("Standard", f"{PROCESSED_DIR}/standard", f"{MODELS_DIR}/standard")
-    acc_iro = train_bert("Irony", f"{PROCESSED_DIR}/irony", f"{MODELS_DIR}/irony")
-    # acc_std = 0.8622
-    # acc_iro = 0.8533
+    # acc_std = train_bert("Standard", f"{PROCESSED_DIR}/standard", f"{MODELS_DIR}/standard")
+    # acc_iro = train_bert("Irony", f"{PROCESSED_DIR}/irony", f"{MODELS_DIR}/irony")
     acc_obf = train_bert("Obfuscated", f"{PROCESSED_DIR}/obfuscated", f"{MODELS_DIR}/obfuscated")
     
-    print(f"\n=== Final Comparison ===")
-    print(f"Standard:   {acc_std:.4f}")
-    print(f"Irony:      {acc_iro:.4f}")
-    print(f"Obfuscated: {acc_obf:.4f}")
-    
-    # Save results for notebook
-    with open('bert_results.json', 'w') as f:
-        json.dump({
-            'standard': acc_std, 
-            'irony': acc_iro,
-            'obfuscated': acc_obf
-        }, f)
+    print(f"\nObfuscated: {acc_obf:.4f}")
+

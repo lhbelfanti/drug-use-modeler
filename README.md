@@ -28,7 +28,7 @@ The project follows a structured architecture for reproducibility and maintainab
   - `models/`: Model architecture definitions.
 - **/models**: Stores trained model binaries and checkpoints.
 - **/notebooks**: Jupyter notebooks for Exploratory Data Analysis (EDA) and initial experiments.
-- **/evaluation**: Contains evaluation metrics, confusion matrices, and plots.
+- **/evaluation**: Contains the [Evaluation Log](evaluation/README.md) with model performance metrics and history.
 
 ## Download this Repo
 

@@ -13,7 +13,7 @@ Each model is trained on **three** data pipelines:
 
 ## Results: `pre-filtered-corpus`
 
-> Filtered dataset (2,550 samples: 1,275 per class).
+> **Note**: For current dataset statistics, see [data/raw/README.md](../data/raw/README.md).
 
 ### Traditional ML Models
 
@@ -37,7 +37,7 @@ Each model is trained on **three** data pipelines:
 
 ## Results: `raw-corpus`
 
-> Full unfiltered dataset (2,633 samples).
+> **Note**: For current dataset statistics, see [data/raw/README.md](../data/raw/README.md).
 
 ### Traditional ML Models
 

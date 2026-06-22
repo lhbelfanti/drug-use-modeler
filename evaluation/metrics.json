@@ -1,0 +1,978 @@
+{
+  "pre-filtered-corpus": {
+    "standard": {
+      "logistic_regression": {
+        "accuracy": 0.82,
+        "precision": 0.8214,
+        "recall": 0.82,
+        "f1": 0.8198,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8,
+            "recall": 0.8533,
+            "f1": 0.8258,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8429,
+            "recall": 0.7867,
+            "f1": 0.8138,
+            "support": 225
+          }
+        }
+      },
+      "naive_bayes": {
+        "accuracy": 0.8378,
+        "precision": 0.8379,
+        "recall": 0.8378,
+        "f1": 0.8378,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8455,
+            "recall": 0.8267,
+            "f1": 0.836,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8304,
+            "recall": 0.8489,
+            "f1": 0.8396,
+            "support": 225
+          }
+        }
+      },
+      "svm": {
+        "accuracy": 0.8156,
+        "precision": 0.8163,
+        "recall": 0.8156,
+        "f1": 0.8154,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8008,
+            "recall": 0.84,
+            "f1": 0.82,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8318,
+            "recall": 0.7911,
+            "f1": 0.8109,
+            "support": 225
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.7844,
+        "precision": 0.7854,
+        "recall": 0.7844,
+        "f1": 0.7843,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7689,
+            "recall": 0.8133,
+            "f1": 0.7905,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8019,
+            "recall": 0.7556,
+            "f1": 0.778,
+            "support": 225
+          }
+        }
+      },
+      "ffn": {
+        "accuracy": 0.7689,
+        "precision": 0.7692,
+        "recall": 0.7689,
+        "f1": 0.7688,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7788,
+            "recall": 0.7511,
+            "f1": 0.7647,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.7597,
+            "recall": 0.7867,
+            "f1": 0.7729,
+            "support": 225
+          }
+        }
+      },
+      "cnn": {
+        "accuracy": 0.82,
+        "precision": 0.8214,
+        "recall": 0.82,
+        "f1": 0.8198,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8,
+            "recall": 0.8533,
+            "f1": 0.8258,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8429,
+            "recall": 0.7867,
+            "f1": 0.8138,
+            "support": 225
+          }
+        }
+      },
+      "rnn": {
+        "accuracy": 0.7844,
+        "precision": 0.7847,
+        "recall": 0.7844,
+        "f1": 0.7844,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7759,
+            "recall": 0.8,
+            "f1": 0.7877,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.7936,
+            "recall": 0.7689,
+            "f1": 0.781,
+            "support": 225
+          }
+        }
+      },
+      "bert_base": {
+        "accuracy": 0.8622,
+        "precision": 0.8625,
+        "recall": 0.8622,
+        "f1": 0.8622,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8721,
+            "recall": 0.8489,
+            "f1": 0.8604,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8528,
+            "recall": 0.8756,
+            "f1": 0.864,
+            "support": 225
+          }
+        }
+      }
+    },
+    "irony": {
+      "logistic_regression": {
+        "accuracy": 0.82,
+        "precision": 0.8214,
+        "recall": 0.82,
+        "f1": 0.8198,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8,
+            "recall": 0.8533,
+            "f1": 0.8258,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8429,
+            "recall": 0.7867,
+            "f1": 0.8138,
+            "support": 225
+          }
+        }
+      },
+      "naive_bayes": {
+        "accuracy": 0.8333,
+        "precision": 0.8335,
+        "recall": 0.8333,
+        "f1": 0.8333,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8409,
+            "recall": 0.8222,
+            "f1": 0.8315,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8261,
+            "recall": 0.8444,
+            "f1": 0.8352,
+            "support": 225
+          }
+        }
+      },
+      "svm": {
+        "accuracy": 0.8178,
+        "precision": 0.8184,
+        "recall": 0.8178,
+        "f1": 0.8177,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8043,
+            "recall": 0.84,
+            "f1": 0.8217,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8326,
+            "recall": 0.7956,
+            "f1": 0.8136,
+            "support": 225
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.7978,
+        "precision": 0.7999,
+        "recall": 0.7978,
+        "f1": 0.7974,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7746,
+            "recall": 0.84,
+            "f1": 0.806,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8252,
+            "recall": 0.7556,
+            "f1": 0.7889,
+            "support": 225
+          }
+        }
+      },
+      "ffn": {
+        "accuracy": 0.7711,
+        "precision": 0.7714,
+        "recall": 0.7711,
+        "f1": 0.7711,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7629,
+            "recall": 0.7867,
+            "f1": 0.7746,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.7798,
+            "recall": 0.7556,
+            "f1": 0.7675,
+            "support": 225
+          }
+        }
+      },
+      "cnn": {
+        "accuracy": 0.8067,
+        "precision": 0.8105,
+        "recall": 0.8067,
+        "f1": 0.8061,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.776,
+            "recall": 0.8622,
+            "f1": 0.8168,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.845,
+            "recall": 0.7511,
+            "f1": 0.7953,
+            "support": 225
+          }
+        }
+      },
+      "rnn": {
+        "accuracy": 0.7822,
+        "precision": 0.7833,
+        "recall": 0.7822,
+        "f1": 0.782,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7657,
+            "recall": 0.8133,
+            "f1": 0.7888,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8009,
+            "recall": 0.7511,
+            "f1": 0.7752,
+            "support": 225
+          }
+        }
+      },
+      "bert_base": {
+        "accuracy": 0.8533,
+        "precision": 0.8534,
+        "recall": 0.8533,
+        "f1": 0.8533,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8597,
+            "recall": 0.8444,
+            "f1": 0.852,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8472,
+            "recall": 0.8622,
+            "f1": 0.8546,
+            "support": 225
+          }
+        }
+      }
+    },
+    "obfuscated": {
+      "logistic_regression": {
+        "accuracy": 0.8178,
+        "precision": 0.8194,
+        "recall": 0.8178,
+        "f1": 0.8175,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7967,
+            "recall": 0.8533,
+            "f1": 0.824,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8421,
+            "recall": 0.7822,
+            "f1": 0.8111,
+            "support": 225
+          }
+        }
+      },
+      "naive_bayes": {
+        "accuracy": 0.8311,
+        "precision": 0.8313,
+        "recall": 0.8311,
+        "f1": 0.8311,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8402,
+            "recall": 0.8178,
+            "f1": 0.8288,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8225,
+            "recall": 0.8444,
+            "f1": 0.8333,
+            "support": 225
+          }
+        }
+      },
+      "svm": {
+        "accuracy": 0.8156,
+        "precision": 0.8161,
+        "recall": 0.8156,
+        "f1": 0.8155,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8034,
+            "recall": 0.8356,
+            "f1": 0.8192,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8287,
+            "recall": 0.7956,
+            "f1": 0.8118,
+            "support": 225
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.7956,
+        "precision": 0.7967,
+        "recall": 0.7956,
+        "f1": 0.7954,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7782,
+            "recall": 0.8267,
+            "f1": 0.8017,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8152,
+            "recall": 0.7644,
+            "f1": 0.789,
+            "support": 225
+          }
+        }
+      },
+      "ffn": {
+        "accuracy": 0.76,
+        "precision": 0.761,
+        "recall": 0.76,
+        "f1": 0.7598,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7448,
+            "recall": 0.7911,
+            "f1": 0.7672,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.7773,
+            "recall": 0.7289,
+            "f1": 0.7523,
+            "support": 225
+          }
+        }
+      },
+      "cnn": {
+        "accuracy": 0.8089,
+        "precision": 0.8109,
+        "recall": 0.8089,
+        "f1": 0.8086,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.786,
+            "recall": 0.8489,
+            "f1": 0.8162,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8357,
+            "recall": 0.7689,
+            "f1": 0.8009,
+            "support": 225
+          }
+        }
+      },
+      "rnn": {
+        "accuracy": 0.7911,
+        "precision": 0.7934,
+        "recall": 0.7911,
+        "f1": 0.7907,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7673,
+            "recall": 0.8356,
+            "f1": 0.8,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8195,
+            "recall": 0.7467,
+            "f1": 0.7814,
+            "support": 225
+          }
+        }
+      },
+      "bert_base": {
+        "accuracy": 0.8044,
+        "precision": 0.805,
+        "recall": 0.8044,
+        "f1": 0.8043,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8186,
+            "recall": 0.7822,
+            "f1": 0.8,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.7915,
+            "recall": 0.8267,
+            "f1": 0.8087,
+            "support": 225
+          }
+        }
+      }
+    }
+  },
+  "raw-corpus": {
+    "standard": {
+      "logistic_regression": {
+        "accuracy": 0.8,
+        "precision": 0.8035,
+        "recall": 0.8,
+        "f1": 0.7994,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7711,
+            "recall": 0.8533,
+            "f1": 0.8101,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8358,
+            "recall": 0.7467,
+            "f1": 0.7887,
+            "support": 225
+          }
+        }
+      },
+      "naive_bayes": {
+        "accuracy": 0.8067,
+        "precision": 0.8074,
+        "recall": 0.8067,
+        "f1": 0.8066,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7924,
+            "recall": 0.8311,
+            "f1": 0.8113,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8224,
+            "recall": 0.7822,
+            "f1": 0.8018,
+            "support": 225
+          }
+        }
+      },
+      "svm": {
+        "accuracy": 0.8222,
+        "precision": 0.8248,
+        "recall": 0.8222,
+        "f1": 0.8219,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7959,
+            "recall": 0.8667,
+            "f1": 0.8298,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8537,
+            "recall": 0.7778,
+            "f1": 0.814,
+            "support": 225
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.7689,
+        "precision": 0.7697,
+        "recall": 0.7689,
+        "f1": 0.7687,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7553,
+            "recall": 0.7956,
+            "f1": 0.7749,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.784,
+            "recall": 0.7422,
+            "f1": 0.7626,
+            "support": 225
+          }
+        }
+      },
+      "ffn": {
+        "accuracy": 0.76,
+        "precision": 0.7654,
+        "recall": 0.76,
+        "f1": 0.7588,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7276,
+            "recall": 0.8311,
+            "f1": 0.7759,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8031,
+            "recall": 0.6889,
+            "f1": 0.7416,
+            "support": 225
+          }
+        }
+      },
+      "cnn": {
+        "accuracy": 0.7622,
+        "precision": 0.7695,
+        "recall": 0.7622,
+        "f1": 0.7606,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7252,
+            "recall": 0.8444,
+            "f1": 0.7803,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8138,
+            "recall": 0.68,
+            "f1": 0.7409,
+            "support": 225
+          }
+        }
+      },
+      "rnn": {
+        "accuracy": 0.7644,
+        "precision": 0.7706,
+        "recall": 0.7644,
+        "f1": 0.7631,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7297,
+            "recall": 0.84,
+            "f1": 0.781,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8115,
+            "recall": 0.6889,
+            "f1": 0.7452,
+            "support": 225
+          }
+        }
+      },
+      "bert_base": {
+        "accuracy": 0.8178,
+        "precision": 0.8178,
+        "recall": 0.8178,
+        "f1": 0.8178,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8178,
+            "recall": 0.8178,
+            "f1": 0.8178,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8178,
+            "recall": 0.8178,
+            "f1": 0.8178,
+            "support": 225
+          }
+        }
+      }
+    },
+    "irony": {
+      "logistic_regression": {
+        "accuracy": 0.8022,
+        "precision": 0.8054,
+        "recall": 0.8022,
+        "f1": 0.8017,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7742,
+            "recall": 0.8533,
+            "f1": 0.8118,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8366,
+            "recall": 0.7511,
+            "f1": 0.7916,
+            "support": 225
+          }
+        }
+      },
+      "naive_bayes": {
+        "accuracy": 0.8044,
+        "precision": 0.8048,
+        "recall": 0.8044,
+        "f1": 0.8044,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.794,
+            "recall": 0.8222,
+            "f1": 0.8079,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8157,
+            "recall": 0.7867,
+            "f1": 0.8009,
+            "support": 225
+          }
+        }
+      },
+      "svm": {
+        "accuracy": 0.8244,
+        "precision": 0.8263,
+        "recall": 0.8244,
+        "f1": 0.8242,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8017,
+            "recall": 0.8622,
+            "f1": 0.8308,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.851,
+            "recall": 0.7867,
+            "f1": 0.8176,
+            "support": 225
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.7667,
+        "precision": 0.7682,
+        "recall": 0.7667,
+        "f1": 0.7663,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7479,
+            "recall": 0.8044,
+            "f1": 0.7752,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.7885,
+            "recall": 0.7289,
+            "f1": 0.7575,
+            "support": 225
+          }
+        }
+      },
+      "ffn": {
+        "accuracy": 0.7689,
+        "precision": 0.7715,
+        "recall": 0.7689,
+        "f1": 0.7683,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7449,
+            "recall": 0.8178,
+            "f1": 0.7797,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.798,
+            "recall": 0.72,
+            "f1": 0.757,
+            "support": 225
+          }
+        }
+      },
+      "cnn": {
+        "accuracy": 0.7756,
+        "precision": 0.7809,
+        "recall": 0.7756,
+        "f1": 0.7745,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7422,
+            "recall": 0.8444,
+            "f1": 0.79,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8196,
+            "recall": 0.7067,
+            "f1": 0.7589,
+            "support": 225
+          }
+        }
+      },
+      "rnn": {
+        "accuracy": 0.7822,
+        "precision": 0.7822,
+        "recall": 0.7822,
+        "f1": 0.7822,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7822,
+            "recall": 0.7822,
+            "f1": 0.7822,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.7822,
+            "recall": 0.7822,
+            "f1": 0.7822,
+            "support": 225
+          }
+        }
+      },
+      "bert_base": {
+        "accuracy": 0.8244,
+        "precision": 0.8245,
+        "recall": 0.8244,
+        "f1": 0.8244,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8288,
+            "recall": 0.8178,
+            "f1": 0.8233,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8202,
+            "recall": 0.8311,
+            "f1": 0.8256,
+            "support": 225
+          }
+        }
+      }
+    },
+    "obfuscated": {
+      "logistic_regression": {
+        "accuracy": 0.8067,
+        "precision": 0.8105,
+        "recall": 0.8067,
+        "f1": 0.8061,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.776,
+            "recall": 0.8622,
+            "f1": 0.8168,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.845,
+            "recall": 0.7511,
+            "f1": 0.7953,
+            "support": 225
+          }
+        }
+      },
+      "naive_bayes": {
+        "accuracy": 0.8111,
+        "precision": 0.8122,
+        "recall": 0.8111,
+        "f1": 0.811,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.7941,
+            "recall": 0.84,
+            "f1": 0.8164,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8302,
+            "recall": 0.7822,
+            "f1": 0.8055,
+            "support": 225
+          }
+        }
+      },
+      "svm": {
+        "accuracy": 0.8311,
+        "precision": 0.8332,
+        "recall": 0.8311,
+        "f1": 0.8308,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.8066,
+            "recall": 0.8711,
+            "f1": 0.8376,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8599,
+            "recall": 0.7911,
+            "f1": 0.8241,
+            "support": 225
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.7778,
+        "precision": 0.7805,
+        "recall": 0.7778,
+        "f1": 0.7772,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.753,
+            "recall": 0.8267,
+            "f1": 0.7881,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8079,
+            "recall": 0.7289,
+            "f1": 0.7664,
+            "support": 225
+          }
+        }
+      },
+      "ffn": {
+        "accuracy": 0.7333,
+        "precision": 0.7465,
+        "recall": 0.7333,
+        "f1": 0.7297,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.6895,
+            "recall": 0.8489,
+            "f1": 0.761,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8035,
+            "recall": 0.6178,
+            "f1": 0.6985,
+            "support": 225
+          }
+        }
+      },
+      "cnn": {
+        "accuracy": 0.7644,
+        "precision": 0.7675,
+        "recall": 0.7644,
+        "f1": 0.7638,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.739,
+            "recall": 0.8178,
+            "f1": 0.7764,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.796,
+            "recall": 0.7111,
+            "f1": 0.7512,
+            "support": 225
+          }
+        }
+      },
+      "rnn": {
+        "accuracy": 0.7556,
+        "precision": 0.7615,
+        "recall": 0.7556,
+        "f1": 0.7542,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.722,
+            "recall": 0.8311,
+            "f1": 0.7727,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.801,
+            "recall": 0.68,
+            "f1": 0.7356,
+            "support": 225
+          }
+        }
+      },
+      "bert_base": {
+        "accuracy": 0.82,
+        "precision": 0.8202,
+        "recall": 0.82,
+        "f1": 0.82,
+        "per_class": {
+          "NEGATIVE": {
+            "precision": 0.813,
+            "recall": 0.8311,
+            "f1": 0.822,
+            "support": 225
+          },
+          "POSITIVE": {
+            "precision": 0.8273,
+            "recall": 0.8089,
+            "f1": 0.818,
+            "support": 225
+          }
+        }
+      }
+    }
+  }
+}

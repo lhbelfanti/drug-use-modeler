@@ -13,49 +13,49 @@ Each model is trained on **three** data pipelines:
 
 ## Results: `pre-filtered-corpus`
 
-> **Note**: For current dataset statistics, see [data/raw/README.md](../data/raw/README.md).
+> **Note**: For current dataset statistics, see [data/raw/README.md](../data/raw/README.md). Split: 70/15/15, stratified jointly by class (POSITIVE/NEGATIVE) and substance (Cocaína/Marihuana/Heroína/Ecstasy).
 
 ### Traditional ML Models
 
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Obfuscated Acc. |
 | :--- | :--- | :--- | :---: | :---: | :---: |
-| **Naive Bayes** | [05_naive_bayes.ipynb](../notebooks/05_naive_bayes.ipynb) | TF-IDF + MultinomialNB | 83.78% | 83.33% | 83.11% |
-| **Logistic Regression** | [03_logistic_regression.ipynb](../notebooks/03_logistic_regression.ipynb) | TF-IDF + LogisticRegression | 82.00% | 82.00% | 81.78% |
-| **SVM** | [04_svm.ipynb](../notebooks/04_svm.ipynb) | TF-IDF + LinearSVC | 81.56% | 81.78% | 81.56% |
-| **Random Forest** | [06_random_forest.ipynb](../notebooks/06_random_forest.ipynb) | TF-IDF + RandomForest | 78.44% | 79.78% | 79.56% |
+| **Logistic Regression** | [03_logistic_regression.ipynb](../notebooks/03_logistic_regression.ipynb) | TF-IDF + LogisticRegression | 80.44% | 80.00% | 80.44% |
+| **SVM** | [04_svm.ipynb](../notebooks/04_svm.ipynb) | TF-IDF + LinearSVC | 80.44% | 79.78% | 80.00% |
+| **Naive Bayes** | [05_naive_bayes.ipynb](../notebooks/05_naive_bayes.ipynb) | TF-IDF + MultinomialNB | 78.00% | 77.56% | 78.00% |
+| **Random Forest** | [06_random_forest.ipynb](../notebooks/06_random_forest.ipynb) | TF-IDF + RandomForest | 76.00% | 76.22% | 76.22% |
 
 ### Deep Learning Models
 
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Obfuscated Acc. |
 | :--- | :--- | :--- | :---: | :---: | :---: |
-| **BERT (Base)** | [11_bert_base.ipynb](../notebooks/11_bert_base.ipynb) | Fine-tuned BETO (Spanish BERT) | **86.22%** | **85.33%** | 80.44% |
-| **TextCNN** | [09_cnn.ipynb](../notebooks/09_cnn.ipynb) | Word2Vec + Conv1D(3,4,5) | 82.00% | 80.67% | 80.89% |
-| **BiLSTM** | [10_rnn.ipynb](../notebooks/10_rnn.ipynb) | Word2Vec + BiLSTM(64) | 78.44% | 78.22% | 79.11% |
-| **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN | 76.89% | 77.11% | 76.00% |
+| **BERT (Base)** | [11_bert_base.ipynb](../notebooks/11_bert_base.ipynb) | Fine-tuned BETO (Spanish BERT) | **84.22%** | **84.00%** | **83.56%** |
+| **TextCNN** | [09_cnn.ipynb](../notebooks/09_cnn.ipynb) | Word2Vec + Conv1D(3,4,5) | 80.44% | 81.33% | 78.44% |
+| **BiLSTM** | [10_rnn.ipynb](../notebooks/10_rnn.ipynb) | Word2Vec + BiLSTM(64) | 78.44% | 78.89% | 76.00% |
+| **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN | 76.44% | 77.11% | 75.11% |
 
 ---
 
 ## Results: `raw-corpus`
 
-> **Note**: For current dataset statistics, see [data/raw/README.md](../data/raw/README.md).
+> **Note**: For current dataset statistics, see [data/raw/README.md](../data/raw/README.md). Split: 70/15/15, stratified jointly by class (POSITIVE/NEGATIVE) and substance (Cocaína/Marihuana/Heroína/Ecstasy).
 
 ### Traditional ML Models
 
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Obfuscated Acc. |
 | :--- | :--- | :--- | :---: | :---: | :---: |
-| **Naive Bayes** | [05_naive_bayes.ipynb](../notebooks/05_naive_bayes.ipynb) | TF-IDF + MultinomialNB | 83.78% | 83.33% | 83.11% |
-| **Logistic Regression** | [03_logistic_regression.ipynb](../notebooks/03_logistic_regression.ipynb) | TF-IDF + LogisticRegression | 80.00% | 80.22% | 80.67% |
-| **SVM** | [04_svm.ipynb](../notebooks/04_svm.ipynb) | TF-IDF + LinearSVC | 81.56% | 81.78% | 81.56% |
-| **Random Forest** | [06_random_forest.ipynb](../notebooks/06_random_forest.ipynb) | TF-IDF + RandomForest | 78.44% | 79.78% | 79.56% |
+| **SVM** | [04_svm.ipynb](../notebooks/04_svm.ipynb) | TF-IDF + LinearSVC | 80.22% | 80.67% | 80.00% |
+| **Naive Bayes** | [05_naive_bayes.ipynb](../notebooks/05_naive_bayes.ipynb) | TF-IDF + MultinomialNB | 78.89% | 78.67% | 78.00% |
+| **Logistic Regression** | [03_logistic_regression.ipynb](../notebooks/03_logistic_regression.ipynb) | TF-IDF + LogisticRegression | 78.67% | 78.67% | 78.44% |
+| **Random Forest** | [06_random_forest.ipynb](../notebooks/06_random_forest.ipynb) | TF-IDF + RandomForest | 75.56% | 77.33% | 74.89% |
 
 ### Deep Learning Models
 
 | Model | Source Notebook | Technique | Standard Acc. | Irony Acc. | Obfuscated Acc. |
 | :--- | :--- | :--- | :---: | :---: | :---: |
-| **BERT (Base)** | [11_bert_base.ipynb](../notebooks/11_bert_base.ipynb) | Fine-tuned BETO (Spanish BERT) | 81.78% | 82.44% | 82.00% |
-| **BiLSTM** | [10_rnn.ipynb](../notebooks/10_rnn.ipynb) | Word2Vec + BiLSTM(64) | 76.44% | 78.22% | 75.56% |
-| **TextCNN** | [09_cnn.ipynb](../notebooks/09_cnn.ipynb) | Word2Vec + Conv1D(3,4,5) | 76.22% | 77.56% | 76.44% |
-| **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN | 76.00% | 76.89% | 73.33% |
+| **BERT (Base)** | [11_bert_base.ipynb](../notebooks/11_bert_base.ipynb) | Fine-tuned BETO (Spanish BERT) | **81.33%** | **83.56%** | **82.22%** |
+| **TextCNN** | [09_cnn.ipynb](../notebooks/09_cnn.ipynb) | Word2Vec + Conv1D(3,4,5) | 78.22% | 79.11% | 81.11% |
+| **BiLSTM** | [10_rnn.ipynb](../notebooks/10_rnn.ipynb) | Word2Vec + BiLSTM(64) | 77.56% | 75.56% | 78.89% |
+| **FFN** | [08_feed_forward.ipynb](../notebooks/08_feed_forward.ipynb) | Word2Vec + FFN | 72.89% | 74.00% | 72.67% |
 
 ### Embeddings
 

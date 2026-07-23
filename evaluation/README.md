@@ -159,3 +159,129 @@ Based on these results, the following actions are recommended:
     - Consider an ensemble of BERT and SVM, as they appear to be the strongest complementary pair across corpora.
 4.  **Better Embeddings for Neural Models**:
     - Replace the small in-domain Word2Vec vectors with pre-trained multilingual embeddings (e.g., fastText) to close the gap between FFN/CNN/BiLSTM and TF-IDF baselines.
+
+---
+
+## Iteration 2: Drug-Stratified Split
+
+**Goal**: Iteration 1's train/val/test split (`train_test_split(..., stratify=label)`) was stratified only by class (POSITIVE/NEGATIVE), not by the substance each tweet refers to (Cocaína/Marihuana/Heroína/Ecstasy). `corpus-creator` was updated to persist `search_criteria_id` on each corpus row, which let the split be redone stratified jointly by class **and** substance (70/15/15, same random seed). All models below were re-trained and re-evaluated from scratch on the new split.
+
+### Dataset Details
+
+- **Total Samples**: 3,000 for each corpus, same composition as Iteration 1 (500 pairs Cocaína, 500 pairs Marihuana, 376 pairs Heroína, 124 pairs Ecstasy).
+- **Test split**: 450 samples (225 POSITIVE / 225 NEGATIVE), proportionally balanced by substance within each class.
+
+### Full Results: Pre-filtered Corpus
+
+All metrics are macro-averaged. Sorted by F1-Score descending.
+
+#### Standard Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **84.22%** | **84.52%** | **84.22%** | **84.19%** |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 80.44% | 80.53% | 80.44% | 80.43% |
+| **SVM** | TF-IDF + LinearSVC | 80.44% | 80.50% | 80.44% | 80.43% |
+| **CNN** | Word2Vec + Conv1D | 80.44% | 81.65% | 80.44% | 80.26% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 78.44% | 78.74% | 78.44% | 78.39% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 78.00% | 78.12% | 78.00% | 77.98% |
+| **FFN** | Word2Vec + FFN | 76.44% | 76.55% | 76.44% | 76.42% |
+| **Random Forest** | TF-IDF + RandomForest | 76.00% | 76.03% | 76.00% | 75.99% |
+
+#### Irony Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **84.00%** | **84.27%** | **84.00%** | **83.97%** |
+| **CNN** | Word2Vec + Conv1D | 81.33% | 82.36% | 81.33% | 81.18% |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 80.00% | 80.09% | 80.00% | 79.99% |
+| **SVM** | TF-IDF + LinearSVC | 79.78% | 79.81% | 79.78% | 79.77% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 78.89% | 78.99% | 78.89% | 78.87% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 77.56% | 77.65% | 77.56% | 77.54% |
+| **FFN** | Word2Vec + FFN | 77.11% | 77.45% | 77.11% | 77.04% |
+| **Random Forest** | TF-IDF + RandomForest | 76.22% | 76.26% | 76.22% | 76.21% |
+
+#### Obfuscated Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **83.56%** | **83.77%** | **83.56%** | **83.53%** |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 80.44% | 80.53% | 80.44% | 80.43% |
+| **SVM** | TF-IDF + LinearSVC | 80.00% | 80.00% | 80.00% | 80.00% |
+| **CNN** | Word2Vec + Conv1D | 78.44% | 78.74% | 78.44% | 78.39% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 78.00% | 78.09% | 78.00% | 77.98% |
+| **Random Forest** | TF-IDF + RandomForest | 76.22% | 76.31% | 76.22% | 76.20% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 76.00% | 76.21% | 76.00% | 75.95% |
+| **FFN** | Word2Vec + FFN | 75.11% | 75.93% | 75.11% | 74.91% |
+
+### Full Results: Raw Corpus
+
+All metrics are macro-averaged. Sorted by F1-Score descending.
+
+#### Standard Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **81.33%** | **81.42%** | **81.33%** | **81.32%** |
+| **SVM** | TF-IDF + LinearSVC | 80.22% | 80.44% | 80.22% | 80.19% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 78.89% | 78.89% | 78.89% | 78.89% |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 78.67% | 78.89% | 78.67% | 78.62% |
+| **CNN** | Word2Vec + Conv1D | 78.22% | 78.67% | 78.22% | 78.14% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 77.56% | 77.56% | 77.56% | 77.56% |
+| **Random Forest** | TF-IDF + RandomForest | 75.56% | 75.57% | 75.56% | 75.55% |
+| **FFN** | Word2Vec + FFN | 72.89% | 73.15% | 72.89% | 72.81% |
+
+#### Irony Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **83.56%** | **83.73%** | **83.56%** | **83.53%** |
+| **SVM** | TF-IDF + LinearSVC | 80.67% | 80.89% | 80.67% | 80.63% |
+| **CNN** | Word2Vec + Conv1D | 79.11% | 79.79% | 79.11% | 78.99% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 78.67% | 78.67% | 78.67% | 78.67% |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 78.67% | 78.85% | 78.67% | 78.63% |
+| **Random Forest** | TF-IDF + RandomForest | 77.33% | 77.41% | 77.33% | 77.32% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 75.56% | 75.96% | 75.56% | 75.46% |
+| **FFN** | Word2Vec + FFN | 74.00% | 74.00% | 74.00% | 74.00% |
+
+#### Obfuscated Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **82.22%** | **82.39%** | **82.22%** | **82.20%** |
+| **CNN** | Word2Vec + Conv1D | 81.11% | 81.16% | 81.11% | 81.10% |
+| **SVM** | TF-IDF + LinearSVC | 80.00% | 80.24% | 80.00% | 79.96% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 78.89% | 79.31% | 78.89% | 78.81% |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 78.44% | 78.65% | 78.44% | 78.41% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 78.00% | 78.00% | 78.00% | 78.00% |
+| **Random Forest** | TF-IDF + RandomForest | 74.89% | 75.03% | 74.89% | 74.85% |
+| **FFN** | Word2Vec + FFN | 72.67% | 72.70% | 72.67% | 72.66% |
+
+### Best Model Rankings
+
+| Corpus | Best Model | Accuracy | Precision | Recall | F1 | Notes |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| **Pre-filtered** | **BERT (Base)** — Standard | **84.22%** | **84.52%** | **84.22%** | **84.19%** | Best across all variants. |
+| **Raw** | **BERT (Base)** — Irony | **83.56%** | **83.73%** | **83.56%** | **83.53%** | Best across all variants. |
+
+### Key Findings (superseding Iteration 1)
+
+1.  **BERT wins everywhere now**: With the drug-stratified split, BERT (Base) is the top model in **all six** corpus/variant combinations — it no longer loses to SVM or Naive Bayes on the raw corpus or on the Obfuscated variant. The Iteration 1 finding that "SVM is the strongest baseline on raw data" and "Obfuscation hurts BERT most" were both artifacts of a test split that, by chance, was easier for TF-IDF-based models — not genuine robustness advantages of those models.
+
+2.  **Smaller, more honest numbers**: Best accuracy dropped from 86.22% (Iteration 1, pre-filtered/standard) to 84.22% under the same conditions. This is expected: Iteration 1's split could leave an easier substance mix in test than in train purely by chance; stratifying by substance removes that source of overestimation.
+
+3.  **Obfuscation is much less costly for BERT now**: BERT drops only ~0.7 F1 points from Standard to Obfuscated on the pre-filtered corpus (84.19% → 83.53%), versus ~5.8 points in Iteration 1. The earlier "BERT relies heavily on named entities" narrative does not hold up once the split is properly stratified.
+
+4.  **Word2Vec models still underperform**: FFN, CNN and BiLSTM continue to trail BERT and TF-IDF baselines, consistent with Iteration 1.
+
+### External LLM Benchmark (GPT-5.4-mini / Gemini 3.1 Pro)
+
+The external LLM benchmark (see [`ahbgpt`](https://github.com/lhbelfanti/ahbgpt), `FINAL_RESULTS.md`) was also re-run on the new drug-stratified test set. Best results per model, pre-filtered corpus:
+
+| Model | Accuracy | Notes |
+| :--- | :---: | :--- |
+| **Gemini 3.1 Pro** | **93.3%** | Best prompt version (v4/v5 tied). Now clearly ahead of the specialized model. |
+| **BETO (this project)** | 84.22% | Best across all local models. |
+| **GPT-5.4-mini** | 81.1% | Best prompt version (v2). |
+
+Unlike Iteration 1's benchmark (where BETO and GPT-5.4-mini were near-tied, ~86% vs ~84%), Gemini 3.1 Pro now leads by a wide margin (~9 points over BETO) on the corrected, drug-stratified test set.

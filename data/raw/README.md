@@ -18,3 +18,16 @@ Both datasets currently contain exactly **3,000 samples** each.
 | **Raw Corpus** | 3,000 | 1,500 | 1,500 |
 | **Pre-filtered Corpus** | 3,000 | 1,500 | 1,500 |
 
+## Substance Breakdown
+
+Both CSVs now include a `SearchCriteriaID` column (added in `corpus-creator`, mapped to the search criteria that originated each tweet), which lets the train/val/test split be stratified by substance in addition to class.
+
+| Substance | `SearchCriteriaID` | Total Samples | Positive Class | Negative Class |
+| :--- | :---: | :---: | :---: | :---: |
+| **Cocaína** | 1, 2, 3, 4 | 1,000 | 500 | 500 |
+| **Marihuana** | 5 | 1,000 | 500 | 500 |
+| **Heroína** | 6 | 752 | 376 | 376 |
+| **Ecstasy** | 7 | 248 | 124 | 124 |
+
+See [`notebooks/02_preprocessing.ipynb`](../../notebooks/02_preprocessing.ipynb) for the split logic (70/15/15, stratified jointly by class and substance).
+

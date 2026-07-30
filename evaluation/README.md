@@ -274,7 +274,9 @@ All metrics are macro-averaged. Sorted by F1-Score descending.
 
 4.  **Word2Vec models still underperform**: FFN, CNN and BiLSTM continue to trail BERT and TF-IDF baselines, consistent with Iteration 1.
 
-### External LLM Benchmark (GPT-5.4-mini / Gemini 3.1 Pro)
+### External LLM Benchmark (GPT-5.4-mini / Gemini 3.1 Pro) — superseded, see Iteration 3
+
+> This benchmark was run against the Iteration 2 test split, which had cross-split text duplicates. It is kept here for history; see [Iteration 3](#iteration-3-honest-beto-selection--deduplicated-split) for the benchmark re-run on the corrected split.
 
 The external LLM benchmark (see [`ahbgpt`](https://github.com/lhbelfanti/ahbgpt), `FINAL_RESULTS.md`) was also re-run on the new drug-stratified test set. Best results per model, pre-filtered corpus:
 
@@ -285,3 +287,143 @@ The external LLM benchmark (see [`ahbgpt`](https://github.com/lhbelfanti/ahbgpt)
 | **GPT-5.4-mini** | 81.1% | Best prompt version (v2). |
 
 Unlike Iteration 1's benchmark (where BETO and GPT-5.4-mini were near-tied, ~86% vs ~84%), Gemini 3.1 Pro now leads by a wide margin (~9 points over BETO) on the corrected, drug-stratified test set.
+
+---
+
+## Iteration 3: Honest BETO Selection + Deduplicated Split
+
+**Goal**: Iteration 2 had two remaining methodological issues, both found during a pre-submission review:
+
+1.  **BETO's checkpoint was selected using the test set.** `11_bert_base.ipynb` / `scripts/train_bert_base.py` passed `eval_dataset=test_ds` to the HuggingFace `Trainer`, so `load_best_model_at_end` picked whichever epoch scored highest **on the test set itself** — an optimistic, non-blind estimate that none of the other 7 models received. The fix: the `Trainer` now evaluates against `val.csv` (previously loaded and unused) at the end of each epoch, and test is scored exactly once, after training, with no selection involved. Training also now runs the full 3 epochs (the script had regressed to `EPOCHS=1` at some point, undocumented).
+2.  **The pre-filtered corpus had a text-corruption bug, and the split had cross-split duplicates.** `corpus-creator`'s cleaning rules (`\bm\b -> me`, `\bd\b -> de`, `\bt\b -> te`, `\bNas\b -> Unas`, ...) relied on Go's RE2 `\b`, which is ASCII-only and doesn't treat accented vowels as word characters — so `más` became `meás`, `día` became `deía`, `escenas` became `escéUnas`, etc. (352/3000 rows affected in the pre-filtered corpus). Fixed at the source in `corpus-creator` (`cmd/api/corpus/cleaner/clean.go`), which now maps accented characters to reversible ASCII placeholders before applying any rule. Separately, ~30 tweets (independently posted by different users with identical text, e.g. "quiero inyectarme heroína") were landing in more than one split, letting a model partially memorize a "held out" text. `02_preprocessing.ipynb` now calls `resolve_cross_split_duplicates` after the split, which consolidates every duplicate-text group into a single split via same-label/same-drug swaps — split sizes and the class/substance balance are unchanged.
+
+### Dataset Details
+
+Unchanged from Iteration 2: 3,000 samples per corpus, 70/15/15 split (2,100/450/450), test set 225 POSITIVE / 225 NEGATIVE, proportionally balanced by substance (Cocaína 150, Marihuana 150, Heroína 112, Ecstasy 38 — i.e. 75/75/56/19 pairs). The corpus composition itself did not change — only *which* tweets land in which split, and the pre-filtered corpus's text content (bug fix).
+
+### Full Results: Pre-filtered Corpus
+
+All metrics are macro-averaged. Sorted by F1-Score descending.
+
+#### Standard Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **86.00%** | **86.01%** | **86.00%** | **86.00%** |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 80.22% | 80.29% | 80.22% | 80.21% |
+| **SVM** | TF-IDF + LinearSVC | 79.78% | 79.81% | 79.78% | 79.77% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 77.33% | 77.39% | 77.33% | 77.32% |
+| **CNN** | Word2Vec + Conv1D | 77.33% | 77.47% | 77.33% | 77.30% |
+| **Random Forest** | TF-IDF + RandomForest | 76.67% | 76.67% | 76.67% | 76.67% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 76.67% | 76.71% | 76.67% | 76.66% |
+| **FFN** | Word2Vec + FFN | 72.89% | 72.98% | 72.89% | 72.86% |
+
+#### Irony Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **85.33%** | **85.34%** | **85.33%** | **85.33%** |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 80.44% | 80.50% | 80.44% | 80.43% |
+| **CNN** | Word2Vec + Conv1D | 79.33% | 79.40% | 79.33% | 79.32% |
+| **SVM** | TF-IDF + LinearSVC | 79.11% | 79.12% | 79.11% | 79.11% |
+| **Random Forest** | TF-IDF + RandomForest | 79.11% | 79.12% | 79.11% | 79.11% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 78.44% | 78.51% | 78.44% | 78.43% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 77.78% | 77.83% | 77.78% | 77.77% |
+| **FFN** | Word2Vec + FFN | 76.67% | 76.68% | 76.67% | 76.66% |
+
+#### Obfuscated Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **85.78%** | **85.80%** | **85.78%** | **85.78%** |
+| **SVM** | TF-IDF + LinearSVC | 79.78% | 79.81% | 79.78% | 79.77% |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 78.89% | 79.02% | 78.89% | 78.87% |
+| **CNN** | Word2Vec + Conv1D | 78.22% | 78.28% | 78.22% | 78.21% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 76.89% | 76.92% | 76.89% | 76.88% |
+| **Random Forest** | TF-IDF + RandomForest | 76.44% | 76.52% | 76.44% | 76.43% |
+| **FFN** | Word2Vec + FFN | 75.78% | 75.78% | 75.78% | 75.78% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 75.11% | 75.14% | 75.11% | 75.10% |
+
+### Full Results: Raw Corpus
+
+All metrics are macro-averaged. Sorted by F1-Score descending.
+
+#### Standard Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **85.56%** | **85.71%** | **85.56%** | **85.54%** |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 80.67% | 80.74% | 80.67% | 80.66% |
+| **SVM** | TF-IDF + LinearSVC | 80.00% | 80.01% | 80.00% | 80.00% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 79.78% | 79.83% | 79.78% | 79.77% |
+| **CNN** | Word2Vec + Conv1D | 79.78% | 79.99% | 79.78% | 79.74% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 79.11% | 79.51% | 79.11% | 79.04% |
+| **FFN** | Word2Vec + FFN | 78.00% | 78.16% | 78.00% | 77.97% |
+| **Random Forest** | TF-IDF + RandomForest | 74.44% | 74.50% | 74.44% | 74.43% |
+
+#### Irony Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **87.56%** | **87.60%** | **87.56%** | **87.55%** |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 80.67% | 80.77% | 80.67% | 80.65% |
+| **SVM** | TF-IDF + LinearSVC | 80.00% | 80.01% | 80.00% | 80.00% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 79.78% | 79.83% | 79.78% | 79.77% |
+| **CNN** | Word2Vec + Conv1D | 79.33% | 79.50% | 79.33% | 79.30% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 77.56% | 77.96% | 77.56% | 77.47% |
+| **Random Forest** | TF-IDF + RandomForest | 76.00% | 76.02% | 76.00% | 76.00% |
+| **FFN** | Word2Vec + FFN | 74.67% | 76.30% | 74.67% | 74.27% |
+
+#### Obfuscated Variant
+
+| Model | Technique | Accuracy | Precision | Recall | F1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **BERT (Base)** | Fine-tuned BETO | **87.78%** | **87.80%** | **87.78%** | **87.78%** |
+| **Logistic Regression** | TF-IDF + LogisticRegression | 81.78% | 81.84% | 81.78% | 81.77% |
+| **SVM** | TF-IDF + LinearSVC | 80.22% | 80.24% | 80.22% | 80.22% |
+| **Naive Bayes** | TF-IDF + MultinomialNB | 80.22% | 80.25% | 80.22% | 80.22% |
+| **RNN (BiLSTM)** | Word2Vec + BiLSTM | 80.22% | 80.29% | 80.22% | 80.21% |
+| **CNN** | Word2Vec + Conv1D | 80.00% | 80.01% | 80.00% | 80.00% |
+| **FFN** | Word2Vec + FFN | 77.78% | 77.80% | 77.78% | 77.77% |
+| **Random Forest** | TF-IDF + RandomForest | 76.22% | 76.37% | 76.22% | 76.19% |
+
+### Best Model Rankings
+
+| Corpus | Best Model | Accuracy | Precision | Recall | F1 | Notes |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| **Pre-filtered** | **BERT (Base)** — Standard | **86.00%** | **86.01%** | **86.00%** | **86.00%** | Best across all variants. |
+| **Raw** | **BERT (Base)** — Obfuscated | **87.78%** | **87.80%** | **87.78%** | **87.78%** | Best across all variants, and the best result overall. |
+
+### Key Findings (superseding Iteration 2)
+
+1.  **All BETO numbers went up, not down.** Fixing the test-set-selection leak removed an optimistic bias, but training the full 3 epochs (instead of the 1 epoch the script had regressed to) more than compensated: every one of the 6 combinations improved over Iteration 2, by 1.5 to 5.6 points of accuracy.
+
+2.  **The raw corpus now beats the pre-filtered corpus for BETO** (87.78% vs. 86.00%, both Obfuscated/Standard respectively) — the reverse of Iteration 2, where pre-filtered was best across the board. This also reverses the Iteration 2 narrative that obfuscation was neutral-to-harmful for BETO: on the raw corpus, **Obfuscated is now BETO's best variant**, beating Standard by 2.22 points.
+
+3.  **Classical/DL models moved by a few points in either direction**, consistent with resolving ~30 cross-split duplicates (some models lost a small memorization edge; others gained slightly different train data). No model's ranking relative to the others changed.
+
+4.  **Word2Vec models still underperform.** FFN, CNN and BiLSTM continue to trail BERT and TF-IDF baselines, consistent with Iterations 1 and 2.
+
+### External LLM Benchmark (GPT-5.4-mini / Gemini 3.1 Pro)
+
+Re-run against this corrected, deduplicated test set, and with a corrected protocol — see [`ahbgpt`](https://github.com/lhbelfanti/ahbgpt) `FINAL_RESULTS.md` for the full breakdown (confusion matrices, classification reports per prompt version).
+
+**Protocol change from Iteration 2**: both models are now called **once per tweet** (450 independent API calls), instead of sending all 450 tweets in a single prompt. This removes the cross-tweet context leakage of the old protocol (e.g. the model inferring the ~50/50 class balance from seeing the whole test set at once) and makes the LLM evaluation directly comparable to how BETO and the classical/DL models are evaluated. Gemini 3.1 Pro is now called via its own API (Batch mode, `gemini-3.1-pro-preview`, `thinking_level=low`) instead of manual copy-paste into the web UI.
+
+| Corpus | Model | Best prompt | Accuracy | F1 (macro) |
+| :--- | :--- | :---: | :---: | :---: |
+| Pre-filtered | **Gemini 3.1 Pro** | V1 | **93.11%** | **93.09%** |
+| Pre-filtered | GPT-5.4-mini | V1 | 85.33% | 85.18% |
+| Raw | **Gemini 3.1 Pro** | V1 | **92.22%** | **92.19%** |
+| Raw | GPT-5.4-mini | V1 | 85.11% | 84.95% |
+
+For reference, BETO (this project) peaks at 86.00% (pre-filtered/standard) and 87.78% (raw/obfuscated) — Gemini 3.1 Pro still leads by a wide margin (~6–7 points), while GPT-5.4-mini is now essentially tied with BETO.
+
+**Prompt version V1 — the simplest of the five, with no edge-case handling — was the best prompt for both models on both corpora.** This is a different (and more reassuring) picture than Iteration 2, where the best prompt varied by model/corpus and required cherry-picking. The accuracy still varies meaningfully across prompt versions, which is disclosed rather than hidden:
+
+| Corpus | Model | Min | Max | Range |
+| :--- | :--- | :---: | :---: | :---: |
+| Pre-filtered | Gemini 3.1 Pro | 86.22% | 93.11% | 6.89 pp |
+| Pre-filtered | GPT-5.4-mini | 73.11% | 85.33% | 12.22 pp |
+| Raw | Gemini 3.1 Pro | 86.00% | 92.22% | 6.22 pp |
+| Raw | GPT-5.4-mini | 75.50% | 85.11% | 9.61 pp |

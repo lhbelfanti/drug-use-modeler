@@ -34,7 +34,8 @@ VARIANTS = ['standard', 'irony', 'obfuscated']
 LABEL_MAP = {'NEGATIVE': 0, 'POSITIVE': 1}
 LABEL_NAMES = ['NEGATIVE', 'POSITIVE']
 PROCESSED_DIR = 'data/processed'
-MODELS_DIR = 'models'
+MODELS_DIR = os.environ.get('MULTISEED_MODELS_DIR', 'models')
+OUT_SUFFIX = os.environ.get('MULTISEED_OUT_SUFFIX', '')
 MAX_LEN = 50
 EMBED_DIM = 100
 BERT_MAX_LEN = 128
@@ -329,15 +330,19 @@ def main():
                     print(f'    ERROR: {e}')
                     results[corpus][variant][model_name] = {'error': str(e)}
 
-    os.makedirs('evaluation', exist_ok=True)
+    out_dir = 'evaluation' if not OUT_SUFFIX else 'evaluation/multiseed'
+    os.makedirs(out_dir, exist_ok=True)
 
-    with open('evaluation/metrics.json', 'w') as f:
+    json_path = f'{out_dir}/metrics{OUT_SUFFIX}.json'
+    csv_path = f'{out_dir}/metrics{OUT_SUFFIX}.csv'
+
+    with open(json_path, 'w') as f:
         json.dump(results, f, indent=2)
-    print('\nSaved evaluation/metrics.json')
+    print(f'\nSaved {json_path}')
 
     df = pd.DataFrame(rows)
-    df.to_csv('evaluation/metrics.csv', index=False)
-    print('Saved evaluation/metrics.csv')
+    df.to_csv(csv_path, index=False)
+    print(f'Saved {csv_path}')
 
 
 if __name__ == '__main__':

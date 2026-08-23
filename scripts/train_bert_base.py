@@ -58,8 +58,11 @@ def compute_metrics(eval_pred):
     )
     return {'accuracy': acc, 'precision': precision, 'recall': recall, 'f1': f1}
 
-def train_bert(variation_name, data_dir, output_dir):
-    print(f"\n{'='*20} BERT: {variation_name} {'='*20}", flush=True)
+def train_bert(variation_name, data_dir, output_dir, seed=42, save_artifacts=True):
+    print(f"\n{'='*20} BERT: {variation_name} (seed={seed}) {'='*20}", flush=True)
+
+    torch.manual_seed(seed)
+    np.random.seed(seed)
 
     train_ds, val_ds, test_ds = load_dataset(data_dir)
     train_ds = train_ds.map(tokenize_fn, batched=True)
@@ -87,7 +90,7 @@ def train_bert(variation_name, data_dir, output_dir):
         weight_decay=0.01,
         load_best_model_at_end=True,
         metric_for_best_model='accuracy',
-        seed=42,
+        seed=seed,
         report_to='none',
     )
 
@@ -118,10 +121,16 @@ def train_bert(variation_name, data_dir, output_dir):
     )
     print(classification_report(y_true, y_pred))
 
-    os.makedirs(output_dir, exist_ok=True)
-    model.save_pretrained(f'{output_dir}/model')
-    tokenizer.save_pretrained(f'{output_dir}/tokenizer')
-    print(f"Model saved to {output_dir}", flush=True)
+    if save_artifacts:
+        os.makedirs(output_dir, exist_ok=True)
+        model.save_pretrained(f'{output_dir}/model')
+        tokenizer.save_pretrained(f'{output_dir}/tokenizer')
+        print(f"Model saved to {output_dir}", flush=True)
+
+    # Checkpoints are only needed transiently for load_best_model_at_end; drop them
+    # for non-canonical seeds so a 5-seed sweep doesn't multiply disk usage by 5x.
+    import shutil
+    shutil.rmtree(f'{output_dir}/checkpoints', ignore_errors=True)
 
     return {'accuracy': acc, 'precision': precision, 'recall': recall, 'f1': f1}
 

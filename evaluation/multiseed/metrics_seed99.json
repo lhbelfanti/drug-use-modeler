@@ -62,104 +62,87 @@
         }
       },
       "random_forest": {
-        "accuracy": 0.7667,
-        "precision": 0.7667,
-        "recall": 0.7667,
-        "f1": 0.7667,
+        "accuracy": 0.7644,
+        "precision": 0.7646,
+        "recall": 0.7644,
+        "f1": 0.7644,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7655,
-            "recall": 0.7689,
-            "f1": 0.7672,
+            "precision": 0.7717,
+            "recall": 0.7511,
+            "f1": 0.7613,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7679,
-            "recall": 0.7644,
-            "f1": 0.7661,
+            "precision": 0.7576,
+            "recall": 0.7778,
+            "f1": 0.7675,
             "support": 225
           }
         }
       },
       "ffn": {
-        "accuracy": 0.7422,
-        "precision": 0.7548,
-        "recall": 0.7422,
-        "f1": 0.739,
+        "accuracy": 0.7622,
+        "precision": 0.7622,
+        "recall": 0.7622,
+        "f1": 0.7622,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.6982,
-            "recall": 0.8533,
-            "f1": 0.768,
+            "precision": 0.7611,
+            "recall": 0.7644,
+            "f1": 0.7627,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.8114,
-            "recall": 0.6311,
-            "f1": 0.71,
+            "precision": 0.7634,
+            "recall": 0.76,
+            "f1": 0.7617,
             "support": 225
           }
         }
       },
       "cnn": {
-        "accuracy": 0.7867,
-        "precision": 0.79,
-        "recall": 0.7867,
-        "f1": 0.7861,
+        "accuracy": 0.7889,
+        "precision": 0.7892,
+        "recall": 0.7889,
+        "f1": 0.7888,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.759,
-            "recall": 0.84,
-            "f1": 0.7975,
+            "precision": 0.7802,
+            "recall": 0.8044,
+            "f1": 0.7921,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.8209,
-            "recall": 0.7333,
-            "f1": 0.7746,
+            "precision": 0.7982,
+            "recall": 0.7733,
+            "f1": 0.7856,
             "support": 225
           }
         }
       },
       "rnn": {
-        "accuracy": 0.7689,
-        "precision": 0.7697,
-        "recall": 0.7689,
-        "f1": 0.7687,
+        "accuracy": 0.7644,
+        "precision": 0.768,
+        "recall": 0.7644,
+        "f1": 0.7637,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.784,
-            "recall": 0.7422,
-            "f1": 0.7626,
+            "precision": 0.799,
+            "recall": 0.7067,
+            "f1": 0.75,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7553,
-            "recall": 0.7956,
-            "f1": 0.7749,
+            "precision": 0.7371,
+            "recall": 0.8222,
+            "f1": 0.7773,
             "support": 225
           }
         }
       },
       "bert_base": {
-        "accuracy": 0.86,
-        "precision": 0.8601,
-        "recall": 0.86,
-        "f1": 0.86,
-        "per_class": {
-          "NEGATIVE": {
-            "precision": 0.8649,
-            "recall": 0.8533,
-            "f1": 0.8591,
-            "support": 225
-          },
-          "POSITIVE": {
-            "precision": 0.8553,
-            "recall": 0.8667,
-            "f1": 0.8609,
-            "support": 225
-          }
-        }
+        "error": "Incorrect path_or_model_id: 'models_multiseed/pre-filtered-corpus/bert_base/standard/tokenizer'. Please provide either the path to a local folder or the repo_id of a model on the Hub."
       }
     },
     "irony": {
@@ -224,104 +207,87 @@
         }
       },
       "random_forest": {
-        "accuracy": 0.7911,
-        "precision": 0.7912,
-        "recall": 0.7911,
-        "f1": 0.7911,
+        "accuracy": 0.7644,
+        "precision": 0.7645,
+        "recall": 0.7644,
+        "f1": 0.7644,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.786,
-            "recall": 0.8,
-            "f1": 0.793,
+            "precision": 0.7668,
+            "recall": 0.76,
+            "f1": 0.7634,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7964,
-            "recall": 0.7822,
-            "f1": 0.7892,
+            "precision": 0.7621,
+            "recall": 0.7689,
+            "f1": 0.7655,
             "support": 225
           }
         }
       },
       "ffn": {
-        "accuracy": 0.7489,
-        "precision": 0.75,
-        "recall": 0.7489,
-        "f1": 0.7486,
+        "accuracy": 0.7778,
+        "precision": 0.7783,
+        "recall": 0.7778,
+        "f1": 0.7777,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7333,
-            "recall": 0.7822,
-            "f1": 0.757,
+            "precision": 0.7907,
+            "recall": 0.7556,
+            "f1": 0.7727,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7667,
-            "recall": 0.7156,
-            "f1": 0.7402,
+            "precision": 0.766,
+            "recall": 0.8,
+            "f1": 0.7826,
             "support": 225
           }
         }
       },
       "cnn": {
-        "accuracy": 0.8067,
-        "precision": 0.8072,
-        "recall": 0.8067,
-        "f1": 0.8066,
+        "accuracy": 0.8022,
+        "precision": 0.8036,
+        "recall": 0.8022,
+        "f1": 0.802,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7949,
-            "recall": 0.8267,
-            "f1": 0.8105,
+            "precision": 0.7833,
+            "recall": 0.8356,
+            "f1": 0.8086,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.8194,
-            "recall": 0.7867,
-            "f1": 0.8027,
+            "precision": 0.8238,
+            "recall": 0.7689,
+            "f1": 0.7954,
             "support": 225
           }
         }
       },
       "rnn": {
-        "accuracy": 0.7622,
-        "precision": 0.7629,
-        "recall": 0.7622,
-        "f1": 0.7621,
+        "accuracy": 0.7711,
+        "precision": 0.7745,
+        "recall": 0.7711,
+        "f1": 0.7704,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.75,
-            "recall": 0.7867,
-            "f1": 0.7679,
+            "precision": 0.744,
+            "recall": 0.8267,
+            "f1": 0.7832,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7757,
-            "recall": 0.7378,
-            "f1": 0.7563,
+            "precision": 0.805,
+            "recall": 0.7156,
+            "f1": 0.7576,
             "support": 225
           }
         }
       },
       "bert_base": {
-        "accuracy": 0.8533,
-        "precision": 0.8534,
-        "recall": 0.8533,
-        "f1": 0.8533,
-        "per_class": {
-          "NEGATIVE": {
-            "precision": 0.8472,
-            "recall": 0.8622,
-            "f1": 0.8546,
-            "support": 225
-          },
-          "POSITIVE": {
-            "precision": 0.8597,
-            "recall": 0.8444,
-            "f1": 0.852,
-            "support": 225
-          }
-        }
+        "error": "Incorrect path_or_model_id: 'models_multiseed/pre-filtered-corpus/bert_base/irony/tokenizer'. Please provide either the path to a local folder or the repo_id of a model on the Hub."
       }
     },
     "obfuscated": {
@@ -386,104 +352,87 @@
         }
       },
       "random_forest": {
-        "accuracy": 0.7644,
-        "precision": 0.7652,
-        "recall": 0.7644,
-        "f1": 0.7643,
+        "accuracy": 0.74,
+        "precision": 0.7406,
+        "recall": 0.74,
+        "f1": 0.7398,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7511,
-            "recall": 0.7911,
-            "f1": 0.7706,
+            "precision": 0.7288,
+            "recall": 0.7644,
+            "f1": 0.7462,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7793,
-            "recall": 0.7378,
-            "f1": 0.758,
+            "precision": 0.7523,
+            "recall": 0.7156,
+            "f1": 0.7335,
             "support": 225
           }
         }
       },
       "ffn": {
-        "accuracy": 0.76,
-        "precision": 0.7647,
-        "recall": 0.76,
-        "f1": 0.7589,
+        "accuracy": 0.7422,
+        "precision": 0.7424,
+        "recall": 0.7422,
+        "f1": 0.7422,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7294,
-            "recall": 0.8267,
-            "f1": 0.775,
+            "precision": 0.7359,
+            "recall": 0.7556,
+            "f1": 0.7456,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.8,
-            "recall": 0.6933,
-            "f1": 0.7429,
+            "precision": 0.7489,
+            "recall": 0.7289,
+            "f1": 0.7387,
             "support": 225
           }
         }
       },
       "cnn": {
-        "accuracy": 0.7667,
-        "precision": 0.7823,
-        "recall": 0.7667,
-        "f1": 0.7634,
+        "accuracy": 0.7867,
+        "precision": 0.7894,
+        "recall": 0.7867,
+        "f1": 0.7862,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7158,
-            "recall": 0.8844,
-            "f1": 0.7913,
+            "precision": 0.7611,
+            "recall": 0.8356,
+            "f1": 0.7966,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.8488,
-            "recall": 0.6489,
-            "f1": 0.7355,
+            "precision": 0.8177,
+            "recall": 0.7378,
+            "f1": 0.7757,
             "support": 225
           }
         }
       },
       "rnn": {
-        "accuracy": 0.78,
-        "precision": 0.7809,
-        "recall": 0.78,
-        "f1": 0.7798,
+        "accuracy": 0.7556,
+        "precision": 0.7639,
+        "recall": 0.7556,
+        "f1": 0.7536,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7647,
-            "recall": 0.8089,
-            "f1": 0.7862,
+            "precision": 0.8108,
+            "recall": 0.6667,
+            "f1": 0.7317,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7972,
-            "recall": 0.7511,
-            "f1": 0.7735,
+            "precision": 0.717,
+            "recall": 0.8444,
+            "f1": 0.7755,
             "support": 225
           }
         }
       },
       "bert_base": {
-        "accuracy": 0.8578,
-        "precision": 0.858,
-        "recall": 0.8578,
-        "f1": 0.8578,
-        "per_class": {
-          "NEGATIVE": {
-            "precision": 0.8676,
-            "recall": 0.8444,
-            "f1": 0.8559,
-            "support": 225
-          },
-          "POSITIVE": {
-            "precision": 0.8485,
-            "recall": 0.8711,
-            "f1": 0.8596,
-            "support": 225
-          }
-        }
+        "error": "Incorrect path_or_model_id: 'models_multiseed/pre-filtered-corpus/bert_base/obfuscated/tokenizer'. Please provide either the path to a local folder or the repo_id of a model on the Hub."
       }
     }
   },
@@ -550,104 +499,87 @@
         }
       },
       "random_forest": {
-        "accuracy": 0.7444,
-        "precision": 0.745,
-        "recall": 0.7444,
-        "f1": 0.7443,
+        "accuracy": 0.7644,
+        "precision": 0.7645,
+        "recall": 0.7644,
+        "f1": 0.7644,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7331,
-            "recall": 0.7689,
-            "f1": 0.7505,
+            "precision": 0.7598,
+            "recall": 0.7733,
+            "f1": 0.7665,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.757,
-            "recall": 0.72,
-            "f1": 0.738,
+            "precision": 0.7692,
+            "recall": 0.7556,
+            "f1": 0.7623,
             "support": 225
           }
         }
       },
       "ffn": {
         "accuracy": 0.7667,
-        "precision": 0.7706,
+        "precision": 0.7667,
         "recall": 0.7667,
-        "f1": 0.7658,
+        "f1": 0.7667,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7381,
-            "recall": 0.8267,
-            "f1": 0.7799,
+            "precision": 0.7703,
+            "recall": 0.76,
+            "f1": 0.7651,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.803,
-            "recall": 0.7067,
-            "f1": 0.7518,
+            "precision": 0.7632,
+            "recall": 0.7733,
+            "f1": 0.7682,
             "support": 225
           }
         }
       },
       "cnn": {
-        "accuracy": 0.7889,
-        "precision": 0.8009,
-        "recall": 0.7889,
-        "f1": 0.7868,
+        "accuracy": 0.8067,
+        "precision": 0.807,
+        "recall": 0.8067,
+        "f1": 0.8066,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7407,
-            "recall": 0.8889,
-            "f1": 0.8081,
+            "precision": 0.7974,
+            "recall": 0.8222,
+            "f1": 0.8096,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.8611,
-            "recall": 0.6889,
-            "f1": 0.7654,
+            "precision": 0.8165,
+            "recall": 0.7911,
+            "f1": 0.8036,
             "support": 225
           }
         }
       },
       "rnn": {
-        "accuracy": 0.7778,
-        "precision": 0.7786,
-        "recall": 0.7778,
-        "f1": 0.7776,
+        "accuracy": 0.7756,
+        "precision": 0.7785,
+        "recall": 0.7756,
+        "f1": 0.775,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7637,
-            "recall": 0.8044,
-            "f1": 0.7835,
+            "precision": 0.75,
+            "recall": 0.8267,
+            "f1": 0.7865,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7934,
-            "recall": 0.7511,
-            "f1": 0.7717,
+            "precision": 0.8069,
+            "recall": 0.7244,
+            "f1": 0.7635,
             "support": 225
           }
         }
       },
       "bert_base": {
-        "accuracy": 0.8556,
-        "precision": 0.8571,
-        "recall": 0.8556,
-        "f1": 0.8554,
-        "per_class": {
-          "NEGATIVE": {
-            "precision": 0.8333,
-            "recall": 0.8889,
-            "f1": 0.8602,
-            "support": 225
-          },
-          "POSITIVE": {
-            "precision": 0.881,
-            "recall": 0.8222,
-            "f1": 0.8506,
-            "support": 225
-          }
-        }
+        "error": "Incorrect path_or_model_id: 'models_multiseed/raw-corpus/bert_base/standard/tokenizer'. Please provide either the path to a local folder or the repo_id of a model on the Hub."
       }
     },
     "irony": {
@@ -712,104 +644,87 @@
         }
       },
       "random_forest": {
-        "accuracy": 0.76,
-        "precision": 0.7602,
-        "recall": 0.76,
-        "f1": 0.76,
+        "accuracy": 0.7556,
+        "precision": 0.7559,
+        "recall": 0.7556,
+        "f1": 0.7555,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7532,
+            "precision": 0.7468,
             "recall": 0.7733,
-            "f1": 0.7632,
+            "f1": 0.7598,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7671,
-            "recall": 0.7467,
-            "f1": 0.7568,
+            "precision": 0.765,
+            "recall": 0.7378,
+            "f1": 0.7511,
             "support": 225
           }
         }
       },
       "ffn": {
-        "accuracy": 0.7711,
-        "precision": 0.7712,
-        "recall": 0.7711,
-        "f1": 0.7711,
+        "accuracy": 0.7756,
+        "precision": 0.7757,
+        "recall": 0.7756,
+        "f1": 0.7755,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7675,
-            "recall": 0.7778,
-            "f1": 0.7726,
+            "precision": 0.7696,
+            "recall": 0.7867,
+            "f1": 0.778,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7748,
+            "precision": 0.7818,
             "recall": 0.7644,
-            "f1": 0.7696,
+            "f1": 0.773,
             "support": 225
           }
         }
       },
       "cnn": {
-        "accuracy": 0.7978,
-        "precision": 0.7981,
-        "recall": 0.7978,
-        "f1": 0.7977,
+        "accuracy": 0.7911,
+        "precision": 0.7957,
+        "recall": 0.7911,
+        "f1": 0.7903,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.8073,
-            "recall": 0.7822,
-            "f1": 0.7946,
+            "precision": 0.7589,
+            "recall": 0.8533,
+            "f1": 0.8033,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7888,
-            "recall": 0.8133,
-            "f1": 0.8009,
+            "precision": 0.8325,
+            "recall": 0.7289,
+            "f1": 0.7773,
             "support": 225
           }
         }
       },
       "rnn": {
-        "accuracy": 0.7644,
-        "precision": 0.767,
-        "recall": 0.7644,
-        "f1": 0.7639,
+        "accuracy": 0.7867,
+        "precision": 0.7869,
+        "recall": 0.7867,
+        "f1": 0.7866,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7409,
-            "recall": 0.8133,
-            "f1": 0.7754,
+            "precision": 0.7792,
+            "recall": 0.8,
+            "f1": 0.7895,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7931,
-            "recall": 0.7156,
-            "f1": 0.7523,
+            "precision": 0.7945,
+            "recall": 0.7733,
+            "f1": 0.7838,
             "support": 225
           }
         }
       },
       "bert_base": {
-        "accuracy": 0.8756,
-        "precision": 0.876,
-        "recall": 0.8756,
-        "f1": 0.8755,
-        "per_class": {
-          "NEGATIVE": {
-            "precision": 0.8627,
-            "recall": 0.8933,
-            "f1": 0.8777,
-            "support": 225
-          },
-          "POSITIVE": {
-            "precision": 0.8894,
-            "recall": 0.8578,
-            "f1": 0.8733,
-            "support": 225
-          }
-        }
+        "error": "Incorrect path_or_model_id: 'models_multiseed/raw-corpus/bert_base/irony/tokenizer'. Please provide either the path to a local folder or the repo_id of a model on the Hub."
       }
     },
     "obfuscated": {
@@ -874,104 +789,87 @@
         }
       },
       "random_forest": {
-        "accuracy": 0.7622,
-        "precision": 0.7637,
-        "recall": 0.7622,
-        "f1": 0.7619,
+        "accuracy": 0.7556,
+        "precision": 0.7561,
+        "recall": 0.7556,
+        "f1": 0.7554,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7438,
-            "recall": 0.8,
-            "f1": 0.7709,
+            "precision": 0.7447,
+            "recall": 0.7778,
+            "f1": 0.7609,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7837,
-            "recall": 0.7244,
-            "f1": 0.7529,
+            "precision": 0.7674,
+            "recall": 0.7333,
+            "f1": 0.75,
             "support": 225
           }
         }
       },
       "ffn": {
-        "accuracy": 0.7733,
-        "precision": 0.7737,
-        "recall": 0.7733,
-        "f1": 0.7733,
+        "accuracy": 0.7889,
+        "precision": 0.7889,
+        "recall": 0.7889,
+        "f1": 0.7889,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7834,
-            "recall": 0.7556,
-            "f1": 0.7692,
+            "precision": 0.7876,
+            "recall": 0.7911,
+            "f1": 0.7894,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.7639,
-            "recall": 0.7911,
-            "f1": 0.7773,
+            "precision": 0.7902,
+            "recall": 0.7867,
+            "f1": 0.7884,
             "support": 225
           }
         }
       },
       "cnn": {
-        "accuracy": 0.7933,
-        "precision": 0.8092,
-        "recall": 0.7933,
-        "f1": 0.7906,
+        "accuracy": 0.8289,
+        "precision": 0.8289,
+        "recall": 0.8289,
+        "f1": 0.8289,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7391,
-            "recall": 0.9067,
-            "f1": 0.8144,
+            "precision": 0.8246,
+            "recall": 0.8356,
+            "f1": 0.83,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.8793,
-            "recall": 0.68,
-            "f1": 0.7669,
+            "precision": 0.8333,
+            "recall": 0.8222,
+            "f1": 0.8277,
             "support": 225
           }
         }
       },
       "rnn": {
-        "accuracy": 0.7844,
-        "precision": 0.7907,
-        "recall": 0.7844,
-        "f1": 0.7833,
+        "accuracy": 0.7933,
+        "precision": 0.7959,
+        "recall": 0.7933,
+        "f1": 0.7929,
         "per_class": {
           "NEGATIVE": {
-            "precision": 0.7481,
-            "recall": 0.8578,
-            "f1": 0.7992,
+            "precision": 0.7683,
+            "recall": 0.84,
+            "f1": 0.8025,
             "support": 225
           },
           "POSITIVE": {
-            "precision": 0.8333,
-            "recall": 0.7111,
-            "f1": 0.7674,
+            "precision": 0.8235,
+            "recall": 0.7467,
+            "f1": 0.7832,
             "support": 225
           }
         }
       },
       "bert_base": {
-        "accuracy": 0.8778,
-        "precision": 0.878,
-        "recall": 0.8778,
-        "f1": 0.8778,
-        "per_class": {
-          "NEGATIVE": {
-            "precision": 0.8696,
-            "recall": 0.8889,
-            "f1": 0.8791,
-            "support": 225
-          },
-          "POSITIVE": {
-            "precision": 0.8864,
-            "recall": 0.8667,
-            "f1": 0.8764,
-            "support": 225
-          }
-        }
+        "error": "Incorrect path_or_model_id: 'models_multiseed/raw-corpus/bert_base/obfuscated/tokenizer'. Please provide either the path to a local folder or the repo_id of a model on the Hub."
       }
     }
   }

@@ -427,3 +427,54 @@ For reference, BETO (this project) peaks at 86.00% (pre-filtered/standard) and 8
 | Pre-filtered | GPT-5.4-mini | 73.11% | 85.33% | 12.22 pp |
 | Raw | Gemini 3.1 Pro | 86.00% | 92.22% | 6.22 pp |
 | Raw | GPT-5.4-mini | 75.50% | 85.11% | 9.61 pp |
+
+---
+
+## Iteration 4: Multi-Seed Variance + FFN/CNN/RNN Reproducibility Fix
+
+**Goal**: address two issues raised in a pre-submission review by the thesis director (Claudio):
+
+1. All Iteration 1-3 numbers come from a single training run per configuration, with no measure of run-to-run variance — conclusions were being drawn from differences of 1-2 tweets.
+2. `gpt-5.4-mini` (OpenAI's economy tier) was being compared against `gemini-3.1-pro-preview` (Google's flagship) — a tier mismatch.
+
+### Reproducibility fix: FFN/CNN/RNN never had a fixed seed
+
+While parametrizing the seed for the 5-run sweep below, found that `08_feed_forward.ipynb`, `09_cnn.ipynb` and `10_rnn.ipynb` never called `torch.manual_seed()`. Every prior run of these three notebooks, across Iterations 1-3, was non-deterministic. Fixed by adding `SEED = 42` plus `torch.manual_seed(SEED)` / `np.random.seed(SEED)` / `random.seed(SEED)` at the top of each notebook.
+
+Even with the seed fixed, exact bit-for-bit reproducibility is not guaranteed on CPU: PyTorch's multi-threaded CPU matrix reductions are not fully deterministic unless `torch.use_deterministic_algorithms(True)` is set and threading is restricted to 1, which would slow training meaningfully and wasn't judged worth it — the 5-seed sweep below already characterizes and reports this residual variance directly, seed=42 included. `metrics.csv` / `metrics.json` were regenerated with the fix; FFN/CNN/RNN numbers below now differ slightly from Iterations 1-3 (every other model is deterministic given a fixed seed and is unchanged):
+
+| Model | Variant (Pre-filtered) | Old (unseeded) | New (SEED=42) |
+| :--- | :--- | :---: | :---: |
+| FFN | Standard | 72.89% | 74.22% |
+| TextCNN | Standard | 77.33% | 78.67% |
+| BiLSTM | Standard | 76.67% | 76.89% |
+
+(Irony/Obfuscated and the raw-corpus variants changed similarly — see `metrics.csv` for the full table.)
+
+### 5-seed variance study
+
+Every one of the 48 configurations (2 corpora × 3 variants × 8 models) was re-run with 5 seeds: 42, 123, 2024, 7, 99. Seed 42 is the existing Iteration 3 canonical run (not re-run, to save ~5-6 hours of compute); the other 4 were run fresh. `scripts/run_multiseed.sh` orchestrates the sweep, calling `scripts/train_bert_multiseed.py` for BERT and re-running notebooks 03-10 per seed/corpus for the rest. Results:
+
+- `evaluation/multiseed_all_runs.csv` — every individual run (48 configs × 5 seeds = 240 rows).
+- `evaluation/multiseed_summary.csv` — mean ± standard deviation per configuration.
+
+**Key finding**: BETO's best configuration (pre-filtered/standard) is **85.42% ± 1.13pp** across 5 seeds — the single-run Iteration 3 value (86.00%) falls within the normal range, not a lucky outlier. More importantly: BETO's 0.67pp edge over GPT-5.4-mini reported in Iteration 3 is smaller than BETO's own run-to-run standard deviation. That comparison was never distinguishable from noise on a single run.
+
+Naive Bayes and Logistic Regression show ~0 variance across seeds (their solvers are effectively deterministic given fixed data). Random Forest and the neural models (FFN/CNN/RNN/BERT) show real variance, on the order of 1-2pp of accuracy — consistent with the reproducibility finding above.
+
+Note: this 5-seed treatment was **not** applied to the external LLMs (GPT/Gemini, next section) — repeating that benchmark 5x would have meant 5x its API cost, and it wasn't part of what was requested. The LLM numbers below remain single-run; this asymmetry is disclosed rather than hidden.
+
+### LLM tier symmetry: `gpt-5.6-sol` added
+
+`gpt-5.4-mini` (economy tier) vs. `gemini-3.1-pro-preview` (Google's flagship) was a tier mismatch. Added `gpt-5.6-sol` — OpenAI's current flagship (confirmed via `client.models.list()`; there is no `gemini-3.x-pro` newer than 3.1, so Gemini 3.1 Pro remains Google's current flagship too). Same protocol as the existing models (one API call per tweet, 5 prompt versions, both corpora). Full results, confusion matrices and per-version breakdown in [`ahbgpt`](https://github.com/lhbelfanti/ahbgpt) `FINAL_RESULTS.md`.
+
+| Corpus | Model | Best prompt | Accuracy | F1 (macro) |
+| :--- | :--- | :---: | :---: | :---: |
+| Pre-filtered | **Gemini 3.1 Pro** | V1 | **93.11%** | **93.09%** |
+| Pre-filtered | GPT-5.6-sol | V1 | 92.67% | 92.66% |
+| Pre-filtered | GPT-5.4-mini | V1 | 85.33% | 85.18% |
+| Raw | **GPT-5.6-sol** | V1 | **93.11%** | **93.11%** |
+| Raw | Gemini 3.1 Pro | V1 | 92.22% | 92.19% |
+| Raw | GPT-5.4-mini | V1 | 85.11% | 84.95% |
+
+`gpt-5.6-sol` and Gemini 3.1 Pro are effectively tied — each leads on one corpus, within half a point of the other on both — a very different picture from the ~7-8 point gap `gpt-5.4-mini` showed against Gemini.

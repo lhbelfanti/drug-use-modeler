@@ -1,0 +1,38 @@
+{
+  "raw-corpus/standard": {
+    "accuracy": 0.8711111111111111,
+    "precision": 0.871140435787519,
+    "recall": 0.8711111111111112,
+    "f1": 0.8711085651074589
+  },
+  "raw-corpus/irony": {
+    "accuracy": 0.86,
+    "precision": 0.8616071428571428,
+    "recall": 0.86,
+    "f1": 0.8598442714126808
+  },
+  "raw-corpus/obfuscated": {
+    "accuracy": 0.8688888888888889,
+    "precision": 0.8689544807965861,
+    "recall": 0.8688888888888888,
+    "f1": 0.8688830614693986
+  },
+  "pre-filtered-corpus/standard": {
+    "accuracy": 0.84,
+    "precision": 0.8406729341909945,
+    "recall": 0.8400000000000001,
+    "f1": 0.8399209486166008
+  },
+  "pre-filtered-corpus/irony": {
+    "accuracy": 0.8444444444444444,
+    "precision": 0.8451261751608115,
+    "recall": 0.8444444444444444,
+    "f1": 0.8443675889328064
+  },
+  "pre-filtered-corpus/obfuscated": {
+    "accuracy": 0.8622222222222222,
+    "precision": 0.8622222222222222,
+    "recall": 0.8622222222222222,
+    "f1": 0.8622222222222222
+  }
+}

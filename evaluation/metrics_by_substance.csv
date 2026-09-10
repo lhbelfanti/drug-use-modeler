@@ -1,0 +1,6 @@
+drug,support_pairs,support_instances,accuracy,precision_macro,recall_macro,f1_macro
+Cocaína,75.0,150,0.8533,0.8574,0.8533,0.8529
+Ecstasy,19.0,38,0.7368,0.7631,0.7368,0.7301
+Heroína,56.0,112,0.8214,0.8231,0.8214,0.8212
+Marihuana,75.0,150,0.9267,0.9274,0.9267,0.9266
+__overall__,,450,0.86,0.8601,0.86,0.86
